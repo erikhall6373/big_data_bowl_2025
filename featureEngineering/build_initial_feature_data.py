@@ -106,12 +106,12 @@ class FeatureDataBuilder:
     
     def _calculate_distance(self):
 
-        self.route_runner_with_tracking_df["defensive_x_distance_from_target"] = self.route_runner_with_tracking_df['receiver_x'] - self.route_runner_with_tracking_df['defender_x']
-        self.route_runner_with_tracking_df["defensive_y_distance_from_target"] = self.route_runner_with_tracking_df['receiver_y'] - self.route_runner_with_tracking_df['defender_y']
+        self.route_runner_with_tracking_df["x_separation_yardage"] = self.route_runner_with_tracking_df['receiver_x'] - self.route_runner_with_tracking_df['defender_x']
+        self.route_runner_with_tracking_df["y_separation_yardage"] = self.route_runner_with_tracking_df['receiver_y'] - self.route_runner_with_tracking_df['defender_y']
 
-        self.route_runner_with_tracking_df["defensive_distance_from_target"] = self.route_runner_with_tracking_df["defensive_x_distance_from_target"]**2 + self.route_runner_with_tracking_df["defensive_y_distance_from_target"]**2
+        self.route_runner_with_tracking_df["separation_yardage"] = self.route_runner_with_tracking_df["x_separation_yardage"]**2 + self.route_runner_with_tracking_df["y_separation_yardage"]**2
 
-        self.route_runner_with_tracking_df["defensive_distance_from_target"] = self.route_runner_with_tracking_df["defensive_distance_from_target"]**.5
+        self.route_runner_with_tracking_df["separation_yardage"] = self.route_runner_with_tracking_df["separation_yardage"]**.5
 
     
     def _build_feature_data(self):
@@ -120,7 +120,7 @@ class FeatureDataBuilder:
                        "offenseFormation", "receiverAlignment", "passResult", "playAction",
                        "timeToThrow", "nflId", "teamAbbr", "inMotionAtBallSnap",
                        "shiftSinceLineset", "motionSinceLineset", "wasRunningRoute",
-                       "routeRan", "defender_nflId", "defensive_distance_from_target"]
+                       "routeRan", "defender_nflId", "separation_yardage"]
         
         result_df = pd.merge(self.pass_play_df, self.route_runner_df, on = ["gameId", "playId"], how = 'left')
 
