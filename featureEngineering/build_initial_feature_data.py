@@ -17,7 +17,7 @@ class FeatureDataBuilder:
 
         play_df = pd.read_parquet("data\plays.parquet")
 
-        pass_play_df = play_df[~play_df["passResult"].isin(['S','R'])]
+        pass_play_df = play_df[~play_df["passResult"].isin(['R'])]
         pass_play_df = play_df[play_df["passResult"].notnull()]
 
         return pass_play_df[result_cols]
@@ -81,18 +81,21 @@ class FeatureDataBuilder:
     
     def _get_tracking_data_on_routes_at_time_of_throw(self):
 
-        result_cols = ['gameId', 'playId', 'nflId', 'receiver_x', 'receiver_y', 'defender_x', 'defender_y']
+        result_cols = ['gameId', 'playId', 'nflId', 'receiver_x', 'receiver_y', 'defender_x', 'defender_y',
+                       "receiver_s", "defender_s", "receiver_dir", "defender_dir"]
 
         tracking_pass_play_df = self._get_passing_tracking_plays()
-        tracking_pass_play_df = tracking_pass_play_df[tracking_pass_play_df['event'] == 'pass_forward']
+        tracking_pass_play_df = tracking_pass_play_df[tracking_pass_play_df['event'].isin(['lineset', 'pass_forward', 'qb_sack'])]
 
-        tracking_pass_play_df = tracking_pass_play_df[["gameId", "playId", "nflId", "x", "y"]]
+        tracking_pass_play_df = tracking_pass_play_df[["gameId", "playId", "nflId", "x", "y", "s", "dir"]]
 
         route_runner_tracking_df = pd.merge(self.route_runner_df, tracking_pass_play_df, 
                                             on = ["gameId", "playId", "nflId"], how = "left")
         
         route_runner_tracking_df = route_runner_tracking_df.rename(columns = {"x" : "receiver_x",
-                                                                              "y" : "receiver_y"})
+                                                                              "y" : "receiver_y",
+                                                                              "s" : "receiver_s",
+                                                                              "dir" : "receiver_dir"})
         
         tracking_pass_play_df = tracking_pass_play_df.rename(columns = {"nflId" : "defender_nflId"})
 
@@ -100,7 +103,9 @@ class FeatureDataBuilder:
                                             on = ["gameId", "playId", "defender_nflId"], how = "left")
         
         route_runner_tracking_df = route_runner_tracking_df.rename(columns = {"x" : "defender_x",
-                                                                              "y" : "defender_y"})
+                                                                              "y" : "defender_y",
+                                                                              "s" : "defender_s",
+                                                                              "dir" : "defender_dir"})
         
         return route_runner_tracking_df[result_cols]
     
@@ -120,7 +125,8 @@ class FeatureDataBuilder:
                        "offenseFormation", "receiverAlignment", "passResult", "playAction",
                        "timeToThrow", "nflId", "teamAbbr", "inMotionAtBallSnap",
                        "shiftSinceLineset", "motionSinceLineset", "wasRunningRoute",
-                       "routeRan", "defender_nflId", "separation_yardage"]
+                       "routeRan", "defender_nflId", "separation_yardage", "receiver_x", "receiver_y", "receiver_s", "receiver_dir",
+                       "defender_x", "defender_y", "defender_s", "defender_dir"]
         
         result_df = pd.merge(self.pass_play_df, self.route_runner_df, on = ["gameId", "playId"], how = 'left')
 
