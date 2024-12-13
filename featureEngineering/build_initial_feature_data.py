@@ -81,13 +81,13 @@ class FeatureDataBuilder:
     
     def _get_tracking_data_on_routes_at_time_of_throw(self):
 
-        result_cols = ['gameId', 'playId', 'nflId', 'receiver_x', 'receiver_y', 'defender_x', 'defender_y',
+        result_cols = ['gameId', 'playId', 'nflId', 'event', 'receiver_x', 'receiver_y', 'defender_x', 'defender_y',
                        "receiver_s", "defender_s", "receiver_dir", "defender_dir"]
 
         tracking_pass_play_df = self._get_passing_tracking_plays()
         tracking_pass_play_df = tracking_pass_play_df[tracking_pass_play_df['event'].isin(['lineset', 'pass_forward', 'qb_sack'])]
 
-        tracking_pass_play_df = tracking_pass_play_df[["gameId", "playId", "nflId", "x", "y", "s", "dir"]]
+        tracking_pass_play_df = tracking_pass_play_df[["gameId", "playId", "nflId", "x", "y", "s", "dir", "event"]]
 
         route_runner_tracking_df = pd.merge(self.route_runner_df, tracking_pass_play_df, 
                                             on = ["gameId", "playId", "nflId"], how = "left")
@@ -95,7 +95,7 @@ class FeatureDataBuilder:
         route_runner_tracking_df = route_runner_tracking_df.rename(columns = {"x" : "receiver_x",
                                                                               "y" : "receiver_y",
                                                                               "s" : "receiver_s",
-                                                                              "dir" : "receiver_dir"})
+                                                                              "dir" : "receiver_dir"}).drop(columns = "event")
         
         tracking_pass_play_df = tracking_pass_play_df.rename(columns = {"nflId" : "defender_nflId"})
 
@@ -121,7 +121,7 @@ class FeatureDataBuilder:
     
     def _build_feature_data(self):
 
-        result_cols = ["gameId", "playId", "quarter", "down", "yardsToGo", "possessionTeam", "playNullifiedByPenalty", 
+        result_cols = ["gameId", "playId", 'event', "quarter", "down", "yardsToGo", "possessionTeam", "playNullifiedByPenalty", 
                        "offenseFormation", "receiverAlignment", "passResult", "playAction",
                        "timeToThrow", "nflId", "teamAbbr", "inMotionAtBallSnap",
                        "shiftSinceLineset", "motionSinceLineset", "wasRunningRoute",
