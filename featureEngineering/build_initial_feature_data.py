@@ -135,6 +135,7 @@ class FeatureDataBuilder:
 
         result_df = pd.merge(result_df, self.route_runner_with_tracking_df, on = ["gameId", "playId", "nflId"], how = "left")
         result_df = result_df[~result_df["defender_nflId"].isnull()]
+        result_df = result_df[~result_df["event"].isnull()]
 
         return result_df[result_cols]
     
