@@ -140,7 +140,7 @@ class FeatureDataBuilder:
     
     def write_feature_data(self):
 
-        self.feature_data_df.to_parquet("data\separation_yardage_feature_data.parquet")
+        self.feature_data_df.to_parquet("data\initial_separation_yardage_feature_data.parquet")
 
 
 FeatureData = FeatureDataBuilder(list(range(1, 9)))

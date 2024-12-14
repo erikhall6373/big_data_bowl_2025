@@ -52,8 +52,8 @@ def calculate_cumulative_distance_before_snap(motion_tracking_df):
 
 motion_tracking_df = pd.read_parquet(("data\motion_tracking.parquet"))
 cumulative_distance_df = calculate_cumulative_distance_before_snap(motion_tracking_df)
-feature_set_df = pd.read_parquet("data\separation_yardage_feature_data.parquet")
+feature_set_df = pd.read_parquet("data\initial_separation_yardage_feature_data.parquet")
 
 feature_set_with_cumulative_motion_df = pd.merge(feature_set_df, cumulative_distance_df, on = ["gameId", "playId", "nflId"], how = 'left')
 
-feature_set_with_cumulative_motion_df.to_parquet("data\separation_yardage_feature_data.parquet")
+feature_set_with_cumulative_motion_df.to_parquet("data\\updated_separation_yardage_feature_data.parquet")
