@@ -5,7 +5,7 @@ import pandas as pd
 
 def get_players_in_motion_from_feature_set():
 
-    feature_set_df = pd.read_parquet("data\separation_yardage_feature_data.parquet")
+    feature_set_df = pd.read_parquet("data\initial_separation_yardage_feature_data.parquet")
     feature_set_df = feature_set_df[feature_set_df['motionSinceLineset'] == True]
 
     result_df = feature_set_df[['gameId', 'playId', 'nflId']]
