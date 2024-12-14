@@ -85,7 +85,7 @@ class FeatureDataBuilder:
                        "receiver_s", "defender_s", "receiver_dir", "defender_dir"]
 
         tracking_pass_play_df = self._get_passing_tracking_plays()
-        tracking_pass_play_df = tracking_pass_play_df[tracking_pass_play_df['event'].isin(['line_set', 'pass_forward', 'qb_sack'])]
+        tracking_pass_play_df = tracking_pass_play_df[tracking_pass_play_df['event'].isin(['line_set', 'pass_forward', 'qb_sack', 'ball_snap'])]
 
         tracking_pass_play_df = tracking_pass_play_df[["gameId", "playId", "nflId", "x", "y", "s", "dir", "event"]]
 
