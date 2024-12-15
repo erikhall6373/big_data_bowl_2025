@@ -95,12 +95,12 @@ class FeatureDataBuilder:
         route_runner_tracking_df = route_runner_tracking_df.rename(columns = {"x" : "receiver_x",
                                                                               "y" : "receiver_y",
                                                                               "s" : "receiver_s",
-                                                                              "dir" : "receiver_dir"}).drop(columns = "event")
+                                                                              "dir" : "receiver_dir"})
         
         tracking_pass_play_df = tracking_pass_play_df.rename(columns = {"nflId" : "defender_nflId"})
 
         route_runner_tracking_df = pd.merge(route_runner_tracking_df, tracking_pass_play_df, 
-                                            on = ["gameId", "playId", "defender_nflId"], how = "inner")
+                                            on = ["gameId", "playId", "defender_nflId", "event"], how = "inner")
         
         route_runner_tracking_df = route_runner_tracking_df.rename(columns = {"x" : "defender_x",
                                                                               "y" : "defender_y",
