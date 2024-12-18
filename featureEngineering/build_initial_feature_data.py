@@ -79,13 +79,30 @@ class FeatureDataBuilder:
 
         return tracking_pass_play_df
     
+    def _create_3_secs_post_snap_event(self, passing_tracking_plays):
+
+        ball_snap_df = passing_tracking_plays[passing_tracking_plays['event'].isin(['ball_snap'])].copy()
+        three_secs_post_ball_snap_df = ball_snap_df[['gameId', 'playId', 'frameId']].copy().drop_duplicates()
+
+        three_secs_post_ball_snap_df['frameId'] = three_secs_post_ball_snap_df['frameId'] + 30
+
+        three_secs_post_ball_snap_df['three_secs_post_snap_event'] = 'three_secs_post_snap'
+
+        result_df = passing_tracking_plays.merge(three_secs_post_ball_snap_df, on = ['gameId', 'playId', 'frameId'], how = 'left')
+
+        result_df['event'] = result_df['event'].combine_first(result_df['three_secs_post_snap_event'])
+        result_df = result_df.drop(columns = ['three_secs_post_snap_event'])
+
+        return result_df
+    
     def _get_tracking_data_on_routes_at_time_of_throw(self):
 
         result_cols = ['gameId', 'playId', 'nflId', 'event', 'receiver_x', 'receiver_y', 'defender_x', 'defender_y',
                        "receiver_s", "defender_s", "receiver_dir", "defender_dir"]
 
         tracking_pass_play_df = self._get_passing_tracking_plays()
-        tracking_pass_play_df = tracking_pass_play_df[tracking_pass_play_df['event'].isin(['line_set', 'pass_forward', 'qb_sack', 'ball_snap'])]
+        tracking_pass_play_df = self._create_3_secs_post_snap_event(tracking_pass_play_df)
+        tracking_pass_play_df = tracking_pass_play_df[tracking_pass_play_df['event'].isin(['line_set', 'pass_forward', 'qb_sack', 'ball_snap', 'three_secs_post_snap'])]
 
         tracking_pass_play_df = tracking_pass_play_df[["gameId", "playId", "nflId", "x", "y", "s", "dir", "event"]]
 
