@@ -97,14 +97,14 @@ class FeatureDataBuilder:
     
     def _get_tracking_data_on_routes_at_time_of_throw(self):
 
-        result_cols = ['gameId', 'playId', 'nflId', 'event', 'receiver_x', 'receiver_y', 'defender_x', 'defender_y',
+        result_cols = ['gameId', 'playId', 'nflId', 'event', 'frameId', 'receiver_x', 'receiver_y', 'defender_x', 'defender_y',
                        "receiver_s", "defender_s", "receiver_dir", "defender_dir"]
 
         tracking_pass_play_df = self._get_passing_tracking_plays()
         tracking_pass_play_df = self._create_3_secs_post_snap_event(tracking_pass_play_df)
         tracking_pass_play_df = tracking_pass_play_df[tracking_pass_play_df['event'].isin(['line_set', 'pass_forward', 'qb_sack', 'ball_snap', 'three_secs_post_snap'])]
 
-        tracking_pass_play_df = tracking_pass_play_df[["gameId", "playId", "nflId", "x", "y", "s", "dir", "event"]]
+        tracking_pass_play_df = tracking_pass_play_df[["gameId", "playId", "nflId", "x", "y", "s", "dir", "event", "frameId"]]
 
         route_runner_tracking_df = pd.merge(self.route_runner_df, tracking_pass_play_df, 
                                             on = ["gameId", "playId", "nflId"], how = "inner")
@@ -117,7 +117,7 @@ class FeatureDataBuilder:
         tracking_pass_play_df = tracking_pass_play_df.rename(columns = {"nflId" : "defender_nflId"})
 
         route_runner_tracking_df = pd.merge(route_runner_tracking_df, tracking_pass_play_df, 
-                                            on = ["gameId", "playId", "defender_nflId", "event"], how = "inner")
+                                            on = ["gameId", "playId", "defender_nflId", "event", "frameId"], how = "inner")
         
         route_runner_tracking_df = route_runner_tracking_df.rename(columns = {"x" : "defender_x",
                                                                               "y" : "defender_y",
@@ -138,7 +138,7 @@ class FeatureDataBuilder:
     
     def _build_feature_data(self):
 
-        result_cols = ["gameId", "playId", 'event', "quarter", "down", "yardsToGo", "possessionTeam", "playNullifiedByPenalty", 
+        result_cols = ["gameId", "playId", 'event', 'frameId', "quarter", "down", "yardsToGo", "possessionTeam", "playNullifiedByPenalty", 
                        "offenseFormation", "receiverAlignment", "passResult", "playAction",
                        "timeToThrow", "nflId", "teamAbbr", "inMotionAtBallSnap",
                        "shiftSinceLineset", "motionSinceLineset", "wasRunningRoute",
