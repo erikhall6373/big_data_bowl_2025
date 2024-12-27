@@ -28,10 +28,8 @@ The features of consideration were
 Let's look at the receivers that the best at their craft in generating separation yards over expected, and see how motion took effect on a handful of plays.
 
 ## Future Work
-If given more time the team would do a much deeper dive into the tracking data around motion and it's impact on separation yardage. In particular set of research, it remains as a high level analysis but with tracking data it appears that there is much more to consider
+If given more time the team would do a much deeper dive into the tracking data around motion and it's impact on separation yardage. In our particular set of research, it remains as a high level analysis but with tracking data there's an opportunity to really dig into types of motion and their impact on separation yardage.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I didn&#39;t think it was possible for me to like Joe Brady any more, but I was wrong. Shift/Motion theory can be an incredible weapon if you know how to utilize it. <a href="https://t.co/zqc34t89Gp">https://t.co/zqc34t89Gp</a> <a href="https://t.co/TkrHCFe974">pic.twitter.com/TkrHCFe974</a></p>&mdash; Honest NFL (@TheHonestNFL) <a href="https://twitter.com/TheHonestNFL/status/1869858318606541134?ref_src=twsrc%5Etfw">December 19, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
+ 
 ## Appendix
 Code is here blah....
