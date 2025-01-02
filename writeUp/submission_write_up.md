@@ -20,7 +20,7 @@ of play outcome as separation yardage becomes more chaotic as play extends past 
 
 The features of consideration were
 
-- **Down (Down of the given play)
+- **Down** (Down of the given play)
 - **Yards to Go** (Distance needed for a first down)
 - **Play Action** (Indicator of play-action a given play)
 - **Motion Since Line Set** (Indicator of if a given player went in motion after they were initially set at the line on the given play)
