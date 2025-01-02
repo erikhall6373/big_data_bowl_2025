@@ -20,24 +20,24 @@ of play outcome as separation yardage becomes more chaotic as play extends past 
 
 The features of consideration were
 
-- Down (Down of the given play)
-- Yards to Go (Distance needed for a first down)
-- Play Action (Indicator of play-action a given play)
-- Motion Since Line Set (Indicator of if a given player went in motion after they were initially set at the line on the given play)
-- Shift Since Line Set (Indicator of if a given player moved more than 2.5 yards from where they were initiall set)
-- In Motion at Ball Snap (Indicator of if a player is moving faster than 0.62 y/s in the window 0.4 seconds prior to the ball snap and has moved at least 1.2 yards in that window)
-- Receiver Alignment (Categorial receiver formations eumerated as 0x0, 1x0, 1x1, 2x0, 2x1, 2x2, 3x0, 3x1, 3x2)
-- Route Ran (Name of the route ran by the given player on the given play)
-- Receiver Speed (Speed in yards/second of a given receiver)
-- Receiver Direction (Angle in degrees of receiver while moving)
-- Defender Speed (Speed in yards/second of a given defender)
-- Defender Direction (Angle in degrees of defender while moving)
-- Net Distance in the X Direction
-- Net Distance in the Y Direction
-- Net Velocity in the X Direction
-- Net Velocity in the Y Direction
-- Net Theta
-- Cushion Yardage (Euclidean distance between a given receiver and defender at the time of the snap on a given play)
+- **Down (Down of the given play)
+- **Yards to Go** (Distance needed for a first down)
+- **Play Action** (Indicator of play-action a given play)
+- **Motion Since Line Set** (Indicator of if a given player went in motion after they were initially set at the line on the given play)
+- **Shift Since Line Set** (Indicator of if a given player moved more than 2.5 yards from where they were initiall set)
+- **In Motion at Ball Snap** (Indicator of if a player is moving faster than 0.62 y/s in the window 0.4 seconds prior to the ball snap and has moved at least 1.2 yards in that window)
+- **Receiver Alignment** (Categorial receiver formations eumerated as 0x0, 1x0, 1x1, 2x0, 2x1, 2x2, 3x0, 3x1, 3x2)
+- **Route Ran** (Name of the route ran by the given player on the given play)
+- **Receiver Speed** (Speed in yards/second of a given receiver)
+- **Receiver Direction** (Angle in degrees of receiver while moving)
+- **Defender Speed** (Speed in yards/second of a given defender)
+- **Defender Direction** (Angle in degrees of defender while moving)
+- **Net Distance in the X Direction** ()
+- **Net Distance in the Y Direction** ()
+- **Net Velocity in the X Direction** ()
+- **Net Velocity in the Y Direction** ()
+- **Net Theta** ()
+- **Cushion Yardage** (Euclidean distance between a given receiver and defender at the time of the snap on a given play)
 
   
 ## Highlights
