@@ -20,9 +20,25 @@ of play outcome as separation yardage becomes more chaotic as play extends past 
 
 The features of consideration were
 
-- X
-- Y
-- Z
+- Down (Down of the Given Play)
+- Yards to Go
+- Play Action
+- Motion Since Line Set
+- Shift Since Line Set
+- In Motion at Ball Snap
+- Receiver Alignment
+- Route Ran
+- Receiver Speed
+- Receiver Direction
+- Defender Speed
+- Defender Direction
+- Net Distance in the X Direction
+- Net Distance in the Y Direction
+- Net Velocity in the X Direction
+- Net Velocity in the Y Direction
+- Net Theta
+- Cushion Yardage
+
   
 ## Highlights
 Let's look at the receivers that the best at their craft in generating separation yards over expected, and see how motion took effect on a handful of plays.
