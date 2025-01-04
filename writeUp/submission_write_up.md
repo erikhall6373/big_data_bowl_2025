@@ -43,6 +43,14 @@ The features of consideration were
 ## Highlights
 Let's look at the receivers that the best at their craft in generating separation yards over expected, and see how motion took effect on a handful of plays.
 
+Here's some player separation
+![Player Separation](https://github.com/erikhall6373/big_data_bowl_2025/blob/main/writeUp/player_separation_summary.png)
+
+As well as defender separation summary
+
+![Defender Separation](https://github.com/erikhall6373/big_data_bowl_2025/blob/main/writeUp/defender_separation_summary.png)
+
+
 ## Future Work
 If given more time the team would do a much deeper dive into the tracking data around motion and it's impact on separation yardage. In our particular set of research, it remains as a high level analysis but with tracking data there's an opportunity to really dig into types of motion and their impact on separation yardage.
 
