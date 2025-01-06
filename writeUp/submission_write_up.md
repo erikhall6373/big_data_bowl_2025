@@ -1,9 +1,15 @@
-# The Value of Pre-Snap Offensive Features on Separation Yardage
+# Finding the Spacemen - Who Utilizes the Pre-Snap to Create Space Post-Snap?
 
 ## Introduction
-One of the biggest advantages a defense has prior to the snap of the football is the ability for any player to move from their position without penalty. Despite this, the offense still has a lot of advantages that they are in control of during pre-snap. Some of these advantages include knowledge of the snap count, and knowledge that a play will feature play-action. The offense can also arrange their players formationally to put blockers in the way of would be tacklers. Lastly, another advantageous impact is the ability to put a player in motion as to help identify defensvie coverage.
+When the quarterback snaps the ball, the receivers need to get open to be targeted and make the reception. But so much of the separation early in the play is influenced by decisions prior to the snap.
 
-All of these are data points we've chosen to analyze as knowledge that an offense has pre-snap, and how that knowledge can influence the separation yardage between a defender and a receiver after the snap of the ball.
+One of the biggest advantages a defense has prior to the snap of the football is the ability for any player to move from their position without penalty, but are faced with the question of how tight they should play on the receiver.
+
+For the offense, they know which route will be ran, and they can use alignment and motion to increase the cushion between the receiver and defender.
+
+In our submission, we take a look at the pre-snap components that go into creating separation early in the play - the earlier of the first three seconds after the snap or the time of the throw. We are then able to evaluate which receivers can turn those pre-snap actions into actual post-snap separation and who can do it consistently.
+
+Ultimately, at the time of the snap, we can know which receivers were put in opportunities to create separation then determine who takes advantage of those opportunities.
 
 
 ## Do Separation Yardage Even Matter?
@@ -42,7 +48,7 @@ The features of consideration were
 - **Cushion Yardage** (Euclidean distance between a given receiver and defender at the time of the snap on a given play)
 
 
-The regression model performed with a Training RMSE:  2.19 yards and a Validation RMSE:  2.41 yards. We can see that the pre-snap information is largely able to explain post-snap separation early in the play (within the first three seconds after the snap.)
+The regression model performed with a Training Root Mean Squared Erro:  2.19 yards and a Validation Root Mean Squared Error:  2.41 yards. We can see that the pre-snap information is largely able to explain post-snap separation early in the play (within the first three seconds after the snap.)
 
 ![Model ScatterPlot](https://github.com/erikhall6373/big_data_bowl_2025/blob/main/writeUp/model_scatterplot.png)
 
