@@ -51,7 +51,7 @@ The features of consideration were
 - **Cushion Yardage** (Euclidean distance between a given receiver and defender at the time of the snap on a given play)
 
 
-The regression model performed with a Training Root Mean Squared Erro:  2.19 yards and a Validation Root Mean Squared Error:  2.41 yards. We can see that the pre-snap information is largely able to explain post-snap separation early in the play (within the first three seconds after the snap.)
+The regression model performed with a Training Root Mean Squared Error:  2.19 yards and a Validation Root Mean Squared Error:  2.41 yards. We can see that the pre-snap information is largely able to explain post-snap separation early in the play (within the first three seconds after the snap.)
 
 ![Model ScatterPlot](https://github.com/erikhall6373/big_data_bowl_2025/blob/main/writeUp/model_scatterplot.png)
 
