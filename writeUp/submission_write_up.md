@@ -48,7 +48,7 @@ The regression model performed with a Training RMSE:  2.19 yards and a Validatio
 
 Using this model, we can look a what pre-snap actions and positioning are most impactful to generating post-snap separation. We can calculate the importance of each feature in the model.
 
-[INSERT FEATURE IMPORTANCE IMAGE]
+![Feature Importance](https://github.com/erikhall6373/big_data_bowl_2025/blob/main/writeUp/Feature_Importance.png)
 
 As expected, the cushion at the time of the snap is the most important feature in explaining early post-snap separation. The route ran by receiver is the next most important feature to understanding separation. Below, we show the median expected separation for each route when the receiver is in motion and not in motion. For almost all routes, the median expected value is higher when the receiver is in motion.
 
