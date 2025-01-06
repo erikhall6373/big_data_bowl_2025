@@ -34,11 +34,11 @@ The features of consideration were
 - **Receiver Direction** (Angle in degrees of receiver while moving)
 - **Defender Speed** (Speed in yards/second of a given defender)
 - **Defender Direction** (Angle in degrees of defender while moving)
-- **Net Distance in the X Direction** ()
-- **Net Distance in the Y Direction** ()
-- **Net Velocity in the X Direction** ()
-- **Net Velocity in the Y Direction** ()
-- **Net Theta** ()
+- **Net Distance in the X Direction** ("Cushion" between the receiver and defender at the time of the snap in the x direction - length of the field)
+- **Net Distance in the Y Direction** ("Cushion" between the receiver and defender at the time of the snap in the y direction - width of the field)
+- **Net Velocity in the X Direction** (Difference in speed moving the length of the field - X direction - between the receiver and defender at the time of the snap)
+- **Net Velocity in the Y Direction** (Difference in speed moving the width of the field - Y direction - between the receiver and defender at the time of the snap)
+- **Net Theta** (Difference in the direction of movement - angle - between the receiver and defender at the time of the snap)
 - **Cushion Yardage** (Euclidean distance between a given receiver and defender at the time of the snap on a given play)
 
 
