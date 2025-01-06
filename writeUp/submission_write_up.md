@@ -1,5 +1,8 @@
 # Finding the Spacemen - Who Utilizes the Pre-Snap to Create Space Post-Snap?
 
+Metric Track | Authors: 
+[Erik Hall](https://github.com/erikhall6373), [Bennett Bernard](https://github.com/BootAnalytics)
+
 ## Introduction
 When the quarterback snaps the ball, the receivers need to get open to be targeted and make the reception. But so much of the separation early in the play is influenced by decisions prior to the snap.
 
@@ -14,7 +17,7 @@ Ultimately, at the time of the snap, we can know which receivers were put in opp
 
 ## Do Separation Yardage Even Matter?
 Before we even begin assessing the impacts on separation yardage, it is worth some investigation into what value separation yardage even has. NFL next gen stats 
-gives us some insight into how separation yardage is evaluated. One of those insights is the definition of a quarterback throwing in tight coverage, which is defined as coverage where there is one yard or less worth of separation between the defender and the receiver.
+gives us some insight into how separation yardage is evaluated. One of those insights is the definition of a quarterback throwing in tight coverage, which is defined as when [there is a defender within 1 yard or less of the receiver at the time of completion or incompletion](https://nextgenstats.nfl.com/glossary).
 
 Knowing this definition of a tight coverage window, let's take a look at some boxplot comparing separation yardage across completed and incompleted passes. With regards to the data at hand, it worth note that these visuals and all of the analysis that follow are narrowed to pass plays featuring man-to-man coverage. This particular subset of data is the simplest way to define receivers and their assigned defenders on a particular play.
 
@@ -62,13 +65,21 @@ As expected, the cushion at the time of the snap is the most important feature i
 
 This model allows us to break early-play separation into two key components: that influenced by pre-snap actions and positions and that influenced by post-snap actions and positions. We can then evaluate each route ran to see how much separation is expected based on the pre-snap information, how much is influenced by post-snap actions, and how often a receiver exceeds the expectation.
 
+We are able to calculate the average expected separation for each receiver, then determine how much separation they actually created over the expected value:
+
+![Over Expected Scatterplot](https://github.com/erikhall6373/big_data_bowl_2025/blob/main/writeUp/Separation_Over_Expected_Scatterplot.png)
+
+We are also able to determine which receiver exceed their expected separation more often than not:
+
+![Percent Over Expected Scatterplot](https://github.com/erikhall6373/big_data_bowl_2025/blob/main/writeUp/Percent_of_Routes_With_Separation_Scatterplot.png)
+
   
 ## Highlights
 In the spirit of the Expected Points Added metric, we've identified that one can evaluate player and team performance through added separation yardage. One can also evaluate a success rate of sorts based on how often a player or team is adding separation to a particular play.
 
-Let's take a look at receiver performance with those two lenses;
+Let's take a look at receiver and team performance with those two lenses;
 
-First up being the receivers where Greg Dortch add separation on 64.23% of plays, and averages 0.72 extra separation yards. Tyreek Hill on the other hand does not add a lot of extra separation but, he more often than not is creating space on 50.76% of plays.
+First up being the receivers where Greg Dortch added separation on 64.23% of plays, and averages 0.72 extra separation yards. Tyreek Hill on the other hand does not add a lot of extra separation but, he more often than not is creating space on 50.76% of plays.
 
 ![Reciever Separation](https://github.com/erikhall6373/big_data_bowl_2025/blob/main/writeUp/receiver_separation_summary.png)
 
